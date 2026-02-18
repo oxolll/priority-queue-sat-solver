@@ -34,14 +34,49 @@ The experimental data in the `benchmarks/` directory follows the SATLIB file nam
 
 ## 🛠 Usage
 
-To run the solver on a specific instance:
-
+### 1. Prepare Benchmarks
+First, unzip the benchmark dataset:
 ```bash
-python main2.py
+unzip benchmarks.zip
 ```
+### 2. Run Single Instance
+To solve a specific SAT problem, run main2.py with the path to a .cnf file:
+```bash
+python main2.py benchmarks/uf20-01.cnf
+```
+
+### 3. Run Batch Experiments
 To execute the batch runner for experiments:
 ```bash
 python solver_batch_runner2.py
 ```
+### 4. Configuration & Version Control
+The core logic in solver2.py contains multiple iterations of the heuristic algorithm (e.g., v1, v2, v3).
+
+Switching Versions: To use a different version, open solver2.py and comment/uncomment the corresponding code blocks in the execution section.
+
+Stop-at-First-Solution: Please note that only the latest version (v3.1) is configured to terminate immediately upon finding the first valid assignment (aiming for a minimal solution). Older versions or specific configurations might continue searching the entire space or behave differently.
+
+📈 Experimental Results
+The repository provides two categories of experimental data:
+
+1. General Benchmarks (General Experimental Results)
+These files contain the overall performance metrics (time, decision counts) across standard SATLIB suites, comparing satisfiable (uf) and unsatisfiable (uuf) instances.
+
+uf50-218: 50 variables, 218 clauses (Satisfiable) - See uf50_218_SAT.csv
+
+uf75-325: 75 variables, 325 clauses (Satisfiable) - See uf75_325_SAT.csv
+
+uuf50-218: 50 variables, 218 clauses (Unsatisfiable) - See uuf50_218_SAT.csv
+
+2. Single Solution & Minimal Models (Results Finding Only One Solution)
+Specific logs focus on the solver's behavior when configured to stop immediately after finding the first satisfying assignment (v3.1 behavior). These results are particularly relevant for analyzing the minimal solution property.
+
+sols.csv: Contains the specific boolean assignments found for satisfiable instances.
+
+H1v3.1.csv: Detailed metrics for the latest heuristic version (v3.1), which implements the "stop-at-first-solution" logic.
+
+callcount.csv: Records the number of decisions made to reach the single solution.
+
 🔗 References
-For a deep dive into the algorithmic design and logic flow, please refer to the Presentation Slides.
+For a deep dive into the algorithmic design and logic flow, please refer to the [Presentation Slides]().
