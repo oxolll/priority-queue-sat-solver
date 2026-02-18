@@ -1,6 +1,6 @@
 # Priority-Queue Based SAT Solver
 
-This repository contains a Python implementation of a SAT solver developed during my Master's research. Unlike traditional CDCL solvers, this project explores a **Priority-Queue (PQ)** based approach to manage the search space and variable selection heuristics.
+This repository contains a Python implementation of a SAT solver developed during my Master's research. Unlike traditional DPLL solvers, this project explores a **Priority-Queue (PQ)** based approach to manage the search space and variable selection heuristics.
 
 ## 📂 Project Structure
 
@@ -53,9 +53,9 @@ python solver_batch_runner2.py
 ### 4. Configuration & Version Control
 The core logic in solver2.py contains multiple iterations of the heuristic algorithm (e.g., v1, v2, v3).
 
-Switching Versions: To use a different version, open solver2.py and comment/uncomment the corresponding code blocks in the execution section.
+Switching Versions: To use a different version, open solver2.py and comment/uncomment the corresponding code blocks in the execution section (Line 76~80 or 88).
 
-Stop-at-First-Solution: Please note that only the latest version (v3.1) is configured to terminate immediately upon finding the first valid assignment (aiming for a minimal solution). Older versions or specific configurations might continue searching the entire space or behave differently.
+Stop-at-First-Solution: Please note that only the latest version (v3.1) is configured to terminate immediately upon finding the first valid assignment (aiming for a solution). Older versions or specific configurations might continue searching the entire space or behave differently.
 
 📈 Experimental Results
 The repository provides two categories of experimental data:
@@ -69,8 +69,8 @@ uf75-325: 75 variables, 325 clauses (Satisfiable) - See uf75_325_SAT.csv
 
 uuf50-218: 50 variables, 218 clauses (Unsatisfiable) - See uuf50_218_SAT.csv
 
-2. Single Solution & Minimal Models (Results Finding Only One Solution)
-Specific logs focus on the solver's behavior when configured to stop immediately after finding the first satisfying assignment (v3.1 behavior). These results are particularly relevant for analyzing the minimal solution property.
+2. Single Solution Models (Results Finding Only One Solution)
+Specific logs focus on the solver's behavior when configured to stop immediately after finding the first satisfying assignment (v3.1 behavior). 
 
 sols.csv: Contains the specific boolean assignments found for satisfiable instances.
 
@@ -79,4 +79,4 @@ H1v3.1.csv: Detailed metrics for the latest heuristic version (v3.1), which impl
 callcount.csv: Records the number of decisions made to reach the single solution.
 
 🔗 References
-For a deep dive into the algorithmic design and logic flow, please refer to the [Presentation Slides]().
+For a deep dive into the algorithmic design and logic flow, please refer to the [Presentation Slides](https://github.com/oxolll/priority-queue-sat-solver/tree/main/docs).
